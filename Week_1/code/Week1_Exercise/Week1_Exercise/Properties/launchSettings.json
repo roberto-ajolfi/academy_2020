@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Week1_Exercise": {
+      "commandName": "Project",
+      "commandLineArgs": "3 week1data.csv"
+    }
+  }
+}
