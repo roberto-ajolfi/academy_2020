@@ -36,6 +36,9 @@ namespace Week1_Exercise
             else
             {
                 numberOfItems = int.Parse(args[0]);
+                if (numberOfItems < 1 && numberOfItems > 10)
+                    throw new ArgumentOutOfRangeException("numberOfItems must be between 1 and 10.");
+
                 fileName = BasePath + args[1];
             }
 
