@@ -148,15 +148,4 @@ namespace Week1_Exercise
 
         #endregion
     }
-
-    #region Product struct - REMOVED
-
-    //public struct Product
-    //{
-    //    public string Code;
-    //    public string Description;
-    //    public int Price;
-    //}
-
-    #endregion
 }

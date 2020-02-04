@@ -8,14 +8,6 @@ namespace Week1_Exercise
     {
         #region State (Fields)
 
-        //public string Code;
-        //public string Description;
-        //public double Price;
-        //public DateTime Created;
-
-        //Proprietà
-        //public string Code { get; set; }
-
         private string _code;
         public string Code 
         {
@@ -48,13 +40,7 @@ namespace Week1_Exercise
             }
         }
 
-        //Person p = new Person();
-        // p.Code = "Cippo"; ===> ECCEZIONE
-        // p.Code = "pippo"; ===> OK
-        // string code = p.Code; ===> code = "PIPPO"
-
         public string Description { get; set; }
-        //public double Price { get; set; }
         public DateTime Created { get; private set; }
         public DateTime Updated { get; set; } = DateTime.Today;
 
@@ -67,16 +53,10 @@ namespace Week1_Exercise
 
         public Product(string code, string description, double price)
         {
-            //if (code.Length < 1)
-            //    throw new ArgumentException("Invalid code.");
-            //if (price <= 0)
-            //    throw new ArgumentException("Invalid price.");
-
             Code = code;
             Description = description;
             Price = price;
             Created = DateTime.Today;
-            //Updated = DateTime.Today;
         }
 
         #endregion
