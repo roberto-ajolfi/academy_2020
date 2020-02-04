@@ -6,6 +6,22 @@ namespace Week1_Exercise
     /* WEEK 1 EXERCISE
      * Roberto Ajolfi
      */
+
+    /*
+     * Si chiede di creare un app console in .NET Core 3.0 che 
+     * richieda la lettura come argomenti della linea di comando 
+     * (a) di un numero compreso da 1 e 10 
+     * e (b) una stringa; 
+     * 
+     * dovranno essere creati un pari numero di oggetti “prodotto” (struct Product), 
+     * ciascuno dei quali caratterizzato da 
+     * codice (alfanumerico, campo “Code”), 
+     * nome (campo “Name”) e 
+     * prezzo (numero intero, campo “Price”). 
+     * Una volta terminato l’inserimento dei prodotti, gli stessi devono essere stampati a video 
+     * e scritti all’interno di un file di testo [utilizzare come nome l’argomento (b)] in modo tale 
+     * da poter essere facilmente riletti (la funzione di rilettura non è richiesta).
+     * */
     class Program
     {
         #region Constants
@@ -26,18 +42,20 @@ namespace Week1_Exercise
             #region Check Args
 
             // check args
-            if(args.Length != 2)
+            if (args.Length != 2)
             {
-                Console.WriteLine("USAGE: " + 
-                    AppDomain.CurrentDomain.FriendlyName + 
+                Console.WriteLine("USAGE: " +
+                    AppDomain.CurrentDomain.FriendlyName +
                     " numberOfItems filename");
                 return;
             }
             else
             {
-                numberOfItems = int.Parse(args[0]);
+                //numberOfItems = int.Parse(args[0]);
+                int.TryParse(args[0], out numberOfItems);
                 if (numberOfItems < 1 && numberOfItems > 10)
-                    throw new ArgumentOutOfRangeException("numberOfItems must be between 1 and 10.");
+                    throw new 
+                        ArgumentOutOfRangeException("numberOfItems must be between 1 and 10.");
 
                 fileName = BasePath + args[1];
             }
@@ -71,7 +89,7 @@ namespace Week1_Exercise
 
         private static Product GetProduct()
         {
-            Product p;
+            Product p = new Product();
 
             Console.Write("Codice: ");
             p.Code = Console.ReadLine();
@@ -79,8 +97,10 @@ namespace Week1_Exercise
             p.Description = Console.ReadLine();
             Console.Write("Prezzo: ");
             string price = Console.ReadLine();
-            int.TryParse(price, out p.Price);
-
+            double temp;
+            double.TryParse(price, out temp);
+            p.Price = temp;
+            
             return p;
         }
 
@@ -90,7 +110,9 @@ namespace Week1_Exercise
             for (int i = 0; i < products.Length; i++)
             {
                 Product p = products[i];
-                Console.WriteLine("[{0}] {1} - EUR {2}", p.Code, p.Description, p.Price);
+                Console.WriteLine("[{0}] {1} - EUR {2} (15% out = {3})", 
+                    p.Code, p.Description, p.Price, p.DiscountedPrice(15));
+
             }
             Console.WriteLine("////////////////");
         }
@@ -103,16 +125,19 @@ namespace Week1_Exercise
             {
                 using (StreamWriter sw = File.CreateText(fileName))
                 {
-                    sw.WriteLine("Code,Description,Price");
+                    //sw.WriteLine("Code,Description,Price");
                     for (int i = 0; i < products.Length; i++)
                     {
                         Product p = products[i];
-                        sw.WriteLine("{0},{1},{2}", p.Code, p.Description, p.Price);
+                        sw.WriteLine("{0}:", p.Code);
+                        sw.WriteLine("\t- {0}", p.Description);
+                        sw.WriteLine("\t- {0}", p.Price);
+                        sw.WriteLine("\t- {0}", p.Created.ToString("yyyy-MM-dd"));
                         Console.Write("...");
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Cannot save data.");
                 Console.WriteLine("Error: {0}", ex.Message);
@@ -124,14 +149,14 @@ namespace Week1_Exercise
         #endregion
     }
 
-    #region Product struct
+    #region Product struct - REMOVED
 
-    public struct Product
-    {
-        public string Code;
-        public string Description;
-        public int Price;
-    }
+    //public struct Product
+    //{
+    //    public string Code;
+    //    public string Description;
+    //    public int Price;
+    //}
 
     #endregion
 }
