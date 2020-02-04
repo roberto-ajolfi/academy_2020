@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Week1_Exercise
+namespace Week1_Exercise_Classes
 {
-    class Product
+    public class Product
     {
         #region State (Fields)
 

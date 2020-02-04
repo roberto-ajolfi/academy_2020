@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Week1_Exercise_Classes;
 
 namespace Week1_Exercise
 {
