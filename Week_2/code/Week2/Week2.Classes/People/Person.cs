@@ -57,6 +57,18 @@ namespace Week2.Classes.People
             return child;
         }
 
+        public static Person operator -(Person p1, Person p2)
+        {
+            Person child = new Person();
+            child.FirstName = "Pippo";
+            child.LastName = $"{p1.LastName} {p2.LastName}";
+
+            return child;
+        }
+
+
+        #region post-exercise
+
         public static Person operator++(Person p)
         {
             p.Age++;
@@ -67,9 +79,12 @@ namespace Week2.Classes.People
         {
             return p1.Age < p2.Age;
         }
+
         public static bool operator >(Person p1, Person p2)
         {
             return !(p1 < p2);
         }
+
+        #endregion
     }
 }

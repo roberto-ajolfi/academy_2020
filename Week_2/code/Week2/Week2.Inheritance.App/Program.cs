@@ -35,6 +35,11 @@ namespace Week2.Inheritance.App
             p1++;
             Console.WriteLine("p1 => " + p1.Hello());
             Console.WriteLine("p1 > p2 => " + (p1 > p2));
+
+            Person p3 = p1 - p2;
+            Console.WriteLine("Padre Ignoto! " + p3.Hello());
+
         }
+
     }
 }

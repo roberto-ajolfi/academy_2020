@@ -10,7 +10,13 @@ namespace Week2.App
             Console.WriteLine("====== Numeri Complessi =========");
 
             // MISC BUILDERS
+
             Complex cpx1 = new Complex(3, 4);
+            Complex cpx1_equivalente = new Complex {
+                Real = 3,
+                Imaginary = 4
+            };
+
             Complex cpx2 = new Complex("(5, 7)");
             Complex cpx3 = Complex.AdditionNeutral;
             Complex cpx4 = Complex.MultiplyNeutral;
@@ -21,7 +27,7 @@ namespace Week2.App
             Console.WriteLine("CPX3: {0}", cpx3.Print(Complex.PrintFormat.Readable));
             Console.WriteLine("CPX4: {0}", cpx4.Print(Complex.PrintFormat.Readable));
             Console.WriteLine("CPX5: {0}", cpx5.Print(Complex.PrintFormat.Readable));
-            Console.WriteLine("!CPX5: {0}", cpx5.Conjugate.Print(Complex.PrintFormat.Readable));
+            Console.WriteLine("!CPX5: {0}", (-cpx5).Print(Complex.PrintFormat.Readable));
             Console.WriteLine("|CPX5|: {0}", cpx5.Module);
 
             // MAIN LOOP
@@ -58,19 +64,19 @@ namespace Week2.App
                 switch (operation)
                 {
                     case "+":
-                        result = first.Sum(second);
+                        result = first + second;
                         Console.WriteLine("Sum: {0}", result.Print(Complex.PrintFormat.Readable));
                         break;
                     case "-":
-                        result = first.Subtract(second);
+                        result = first - second;
                         Console.WriteLine("Subtract: {0}", result.Print(Complex.PrintFormat.Readable));
                         break;
                     case "*":
-                        result = first.Multiply(second);
+                        result = first * second;
                         Console.WriteLine("Multiple: {0}", result.Print(Complex.PrintFormat.Readable));
                         break;
                     case "/":
-                        result = first.Divide(second);
+                        result = first / second;
                         Console.WriteLine("Divide: {0}", result.Print(Complex.PrintFormat.Readable));
                         break;
                     default:

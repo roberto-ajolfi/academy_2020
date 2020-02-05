@@ -4,6 +4,11 @@ using System.Text;
 
 namespace Week2.Classes.People
 {
+    public sealed class RetailCustomer : Customer
+    {
+
+    }
+
     public class Customer : Person
     {
         public override string FirstName { 

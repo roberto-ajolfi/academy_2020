@@ -15,6 +15,7 @@ namespace Week2.Classes
         #endregion
 
         #region ctor
+        public Complex() : this(0,0) { }
 
         public Complex(double real, double imaginary)
         {
@@ -39,7 +40,7 @@ namespace Week2.Classes
         public double Real { get; set; }
         public double Imaginary { get; set; }
 
-        public Complex Conjugate
+        private Complex Conjugate
         {
             get
             {
@@ -59,6 +60,35 @@ namespace Week2.Classes
 
         #endregion
 
+        #region Operator Overload
+
+        public static Complex operator-(Complex c)  // Conjugate
+        {
+            return c.Conjugate;
+        }
+
+        public static Complex operator+(Complex c1, Complex c2)
+        {
+            return c1.Sum(c2);
+        }
+
+        public static Complex operator -(Complex c1, Complex c2)
+        {
+            return c1.Subtract(c2);
+        }
+
+        public static Complex operator *(Complex c1, Complex c2)
+        {
+            return c1.Multiply(c2);
+        }
+
+        public static Complex operator /(Complex c1, Complex c2)
+        {
+            return c1.Subtract(c2);
+        }
+
+        #endregion
+
         #region Class Properties
 
         public static Complex AdditionNeutral = new Complex(0, 0);
@@ -68,7 +98,7 @@ namespace Week2.Classes
 
         #region Methods
 
-        public Complex Sum(Complex op)
+        private Complex Sum(Complex op)
         {
             return new Complex(
                 Real + op.Real,
@@ -76,7 +106,7 @@ namespace Week2.Classes
             );
         }
 
-        public Complex Subtract(Complex op)
+        private Complex Subtract(Complex op)
         {
             return new Complex(
                 Real - op.Real,
@@ -84,7 +114,7 @@ namespace Week2.Classes
             );
         }
 
-        public Complex Multiply(Complex op)
+        private Complex Multiply(Complex op)
         {
             double real = Real * op.Real 
                 - Imaginary * op.Imaginary;
@@ -94,7 +124,7 @@ namespace Week2.Classes
             return new Complex(real, imaginary);
         }
 
-        public Complex Divide(Complex op)
+        private Complex Divide(Complex op)
         {
             double real = (Real * op.Real + Imaginary * op.Imaginary) / 
                 (Math.Pow(op.Real, 2) + Math.Pow(op.Imaginary, 2));
