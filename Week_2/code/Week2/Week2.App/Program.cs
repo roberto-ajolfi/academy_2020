@@ -9,6 +9,7 @@ namespace Week2.App
         {
             Console.WriteLine("====== Numeri Complessi =========");
 
+            // MISC BUILDERS
             Complex cpx1 = new Complex(3, 4);
             Complex cpx2 = new Complex("(5, 7)");
             Complex cpx3 = Complex.AdditionNeutral;
@@ -23,6 +24,7 @@ namespace Week2.App
             Console.WriteLine("!CPX5: {0}", cpx5.Conjugate.Print(Complex.PrintFormat.Readable));
             Console.WriteLine("|CPX5|: {0}", cpx5.Module);
 
+            // MAIN LOOP
             bool next = true;
             while (next)
             {
@@ -36,10 +38,10 @@ namespace Week2.App
                 Console.Write("Parte Immaginaria primo numero: ");
                 string imm1 = Console.ReadLine();
                 Console.WriteLine();
-                Console.Write("Parte Reale primo numero: ");
+                Console.Write("Parte Reale secondo numero: ");
                 string real2 = Console.ReadLine();
                 Console.WriteLine();
-                Console.Write("Parte Immaginaria primo numero: ");
+                Console.Write("Parte Immaginaria secondo numero: ");
                 string imm2 = Console.ReadLine();
                 Console.WriteLine();
 

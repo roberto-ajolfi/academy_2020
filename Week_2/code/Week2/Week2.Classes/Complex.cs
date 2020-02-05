@@ -8,8 +8,8 @@ namespace Week2.Classes
 
         public enum PrintFormat
         {
-            Readable,
-            Vector
+            Readable,   // a + bi
+            Vector      // (a, b)
         }
 
         #endregion
@@ -28,8 +28,8 @@ namespace Week2.Classes
                 .Substring(1, complexNumber.Length - 2);
             string[] numberParts = cleanString.Split(',');
 
-            Real = GetBoolValue(numberParts[0]);
-            Imaginary = GetBoolValue(numberParts[1]);
+            Real = GetDoubleValue(numberParts[0]);
+            Imaginary = GetDoubleValue(numberParts[1]);
         }
 
         #endregion
@@ -62,7 +62,7 @@ namespace Week2.Classes
         #region Class Properties
 
         public static Complex AdditionNeutral = new Complex(0, 0);
-        public static Complex MultiplyNeutral = new Complex(1, 1);
+        public static Complex MultiplyNeutral = new Complex(1, 0);
 
         #endregion
 
@@ -142,7 +142,7 @@ namespace Week2.Classes
 
         #region Support Method
 
-        private double GetBoolValue(string numberParts)
+        private double GetDoubleValue(string numberParts)
         {
             double temp;
             double.TryParse(numberParts, out temp);
