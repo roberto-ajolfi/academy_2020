@@ -6,6 +6,14 @@ namespace Week2.Classes.People
 {
     public class Person
     {
+        public Person(string firstname, string lastname, int age, bool married)
+        {
+            FirstName = firstname;
+            LastName = lastname;
+            Age = age;
+            IsMarried = married;
+        }
+
         public virtual string FirstName { get; set; }
         public string LastName { get; set; }
         protected int Age { get; set; }
@@ -50,20 +58,20 @@ namespace Week2.Classes.People
 
         public static Person operator +(Person p1, Person p2)
         {
-            Person child = new Person();
-            child.FirstName = "Pippo";
-            child.LastName = $"{p1.LastName} {p2.LastName}";
+            //Person child = new Person();
+            p1.FirstName = "Pippo";
+            p1.LastName = $"{p1.LastName} {p2.LastName}";
 
-            return child;
+            return p1;
         }
 
         public static Person operator -(Person p1, Person p2)
         {
-            Person child = new Person();
-            child.FirstName = "Pippo";
-            child.LastName = $"{p1.LastName} {p2.LastName}";
+            //Person child = new Person();
+            p1.FirstName = "Pippo";
+            p1.LastName = $"{p1.LastName} {p2.LastName}";
 
-            return child;
+            return p1;
         }
 
 

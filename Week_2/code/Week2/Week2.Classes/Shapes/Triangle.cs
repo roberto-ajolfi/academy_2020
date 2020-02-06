@@ -8,9 +8,9 @@ namespace Week2.Classes.Shapes
     {
         #region ctor
 
-        public Triangle(string name, double baseVal, double height)
+        public Triangle(string name, double baseVal, double height) : base(name)
         {
-            this.Name = name;
+            //this.Name = name;
             this.Base = baseVal;
             this.Height = height;
         }

@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Week2.Classes.People
-{
-    public sealed class RetailCustomer : Customer
-    {
-
-    }
-
+{ 
     public class Customer : Person
     {
+        public Customer(string firstname, string lastname, int age, bool married, string carta):base(firstname,lastname,age,married)
+        {
+            Creditcardnbr = carta;
+        }
+
+        public string Creditcardnbr { get; set; }
+
         public override string FirstName { 
             get => base.FirstName; 
             set => base.FirstName = value; 

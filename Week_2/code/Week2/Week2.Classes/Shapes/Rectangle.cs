@@ -8,9 +8,9 @@ namespace Week2.Classes.Shapes
     {
         #region ctor
 
-        public Rectangle(string name, double width, double height)
+        public Rectangle(string name, double width, double height) : base(name)
         {
-            this.Name = name;
+            //this.Name = name;
             this.Width = width;
             this.Height = height;
         }

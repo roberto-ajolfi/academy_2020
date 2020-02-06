@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Week2.Classes.Shapes
 {
-    public class Shape
+    public abstract class Shape
     {
         #region ctor
 
-        public Shape() : this("NONAME") { }
+        //public Shape() : this("NONAME") { }
 
         public Shape(string name)
         {
@@ -27,10 +27,10 @@ namespace Week2.Classes.Shapes
 
         #region Methods
 
-        public virtual string Draw()
-        {
-            return "I can't draw a Shape.";
-        }
+        public abstract string Draw();
+        //{
+        //    return "I can't draw a Shape.";
+        //}
 
         public virtual string Draw(string message)
         {
